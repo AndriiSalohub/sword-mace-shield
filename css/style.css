@@ -34,15 +34,15 @@ body {
     padding-left: 0px;
 }
 
-.header__title--purple {
+.purple-text {
     color: var(--purple-color);
 }
 
-.header__title--green {
+.green-text {
     color: var(--green-color);
 }
 
-.header__title--red {
+.red-text {
     color: var(--red-color);
 }
 
