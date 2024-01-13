@@ -5,6 +5,7 @@
     --purple-color: #8070ac;
     --green-color: #62b49c;
     --red-color: #b96b78;
+    --border-color: #5e5e5e;
 }
 
 * {
@@ -14,6 +15,9 @@
 body {
     color: #5e5e5e;
     font-family: var(--main-font);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
@@ -60,6 +64,13 @@ body {
     text-align: center;
     font-size: 25px;
     font-weight: 600;
+}
+
+.footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px;
+    border-top: 3px solid var(--border-color);
 }
 
 @media (max-width: 1024px) {
