@@ -103,6 +103,12 @@ body {
     height: auto;
 }
 
+.game-interface__separator {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}
+
 .footer {
     margin-top: auto;
     text-align: center;
