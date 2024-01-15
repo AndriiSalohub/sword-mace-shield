@@ -57,13 +57,50 @@ body {
 }
 
 .game-interface {
-    padding: 0px 200px;
+    margin: 0 auto;
+    padding: 0px 15px;
+    max-width: 800px;
 }
 
 .game-interface__title {
     text-align: center;
     font-size: 25px;
     font-weight: 600;
+}
+
+.game-interface__user-moves {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    border: 3px solid var(--border-color);
+    border-radius: 4px;
+    padding: 35px 75px;
+}
+
+.game-interface__user-move button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: scale 0.3s ease-in-out;
+}
+
+.game-interface__user-move button:hover {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    scale: 1.1;
+    transition: scale 0.3s ease-in-out;
+}
+
+.game-interface__user-move button:last-child {
+    margin-right: 0;
+}
+
+.game-interface__user-move-img {
+    width: 100px;
+    height: auto;
 }
 
 .footer {
@@ -86,6 +123,15 @@ body {
     .game-interface__title {
         font-size: 20px;
     }
+
+    .game-interface__user-moves {
+        padding: 30px 65px;
+    }
+
+    .game-interface__user-move-img {
+        width: 80px;
+        height: auto;
+    }
 }
 
 @media (max-width: 768px) {
@@ -103,12 +149,12 @@ body {
         margin-top: 30px;
     }
 
-    .game-interface {
-        padding: 0px 25px;
-    }
-
     .game-interface__title {
         font-size: 18px;
+    }
+
+    .game-interface__user-moves {
+        padding: 15px 40px;
     }
 }
 
@@ -122,12 +168,17 @@ body {
         margin-top: 25px;
     }
 
-    .game-interface {
-        padding: 0px 5px;
-    }
-
     .game-interface__title {
         font-size: 15px;
+    }
+
+    .game-interface__user-move-img {
+        width: 70px;
+        height: auto;
+    }
+
+    .game-interface__user-moves {
+        padding: 15px 20px;
     }
 }
 
@@ -146,5 +197,10 @@ body {
 
     .game-interface__title {
         font-size: 13px;
+    }
+
+    .game-interface__user-move-img {
+        width: 65px;
+        height: auto;
     }
 }
