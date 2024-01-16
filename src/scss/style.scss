@@ -105,6 +105,36 @@ body {
         width: 70%;
         margin: 0 auto;
     }
+
+    &__status {
+        border: 3px solid var(--border-color);
+        border-radius: 6px;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    &__opponent {
+        padding: 10px 20px;
+        border-right: 3px solid var(--border-color);
+        &-title {
+            text-align: center;
+        }
+        &-choose {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    &__info {
+        padding: 10px 20px;
+
+        &-text {
+            font-size: 18px;
+            line-height: 34px;
+        }
+    }
 }
 
 .footer {
@@ -134,11 +164,6 @@ body {
         &__user-moves {
             padding: 30px 65px;
         }
-
-        &__user-move-img {
-            width: 100px;
-            height: auto;
-        }
     }
 }
 
@@ -164,7 +189,20 @@ body {
 
         &__user-move-img {
             width: 90px;
-            height: auto;
+        }
+
+        &__status {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+
+        &__opponent {
+            border-right: none;
+            border-bottom: 3px solid var(--border-color);
+
+            &-choose {
+                width: 90px;
+            }
         }
     }
 }
@@ -188,7 +226,6 @@ body {
 
         &__user-move-img {
             width: 70px;
-            height: auto;
         }
 
         &__user-moves {
@@ -219,7 +256,6 @@ body {
 
         &__user-move-img {
             width: 65px;
-            height: auto;
         }
     }
 }
