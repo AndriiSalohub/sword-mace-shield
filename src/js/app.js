@@ -17,12 +17,16 @@ let enemyLives = 5;
 moveVariants.forEach((move) => {
     move.addEventListener("click", () => {
         playerMove = move.getAttribute("id");
+        changeRound();
         generateRandomEnemyMove();
-        round++;
-        roundCounter.textContent = ` Round: ${round}`;
         resultCheck(playerMove, enemyMove);
     });
 });
+
+function changeRound() {
+    round++;
+    roundCounter.textContent = ` Round: ${round}`;
+}
 
 function generateRandomEnemyMove() {
     const randomIndex = Math.floor(Math.random() * moveVariants.length);
