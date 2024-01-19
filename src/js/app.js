@@ -1,4 +1,7 @@
 const moveVariants = document.querySelectorAll(".game-interface__user-move");
+const moveButtons = document.querySelectorAll(
+    ".game-interface__user-move-button"
+);
 const enemyMoveImage = document.querySelector(
     ".game-interface__opponent-choose"
 );
@@ -7,6 +10,9 @@ const lives = document.querySelector(".game-interface__lives");
 const combatArea = document.querySelector(".game-interface__combat-area");
 const gameInterfaceStatus = document.querySelector(".game-interface__status");
 const opponentInterface = document.querySelector(".game-interface__opponent");
+const endGame = document.querySelector(".game-interface__end-game");
+const endGameTitle = document.querySelector(".game-interface__end-title");
+const restartButton = document.querySelector(".game-interface__restart-button");
 
 let playerMove = "";
 let enemyMove = "";
@@ -23,6 +29,8 @@ moveVariants.forEach((move) => {
     });
 });
 
+restartButton.addEventListener("click", restartGame);
+
 function changeRound() {
     round++;
     roundCounter.textContent = ` Round: ${round}`;
@@ -31,7 +39,7 @@ function changeRound() {
 function generateRandomEnemyMove() {
     const randomIndex = Math.floor(Math.random() * moveVariants.length);
     enemyMove = moveVariants[randomIndex].getAttribute("id");
-    enemyMoveImage.setAttribute("src", `./public/images/${enemyMove}.png`);
+    enemyMoveImage.setAttribute("src", `./images/${enemyMove}.png`);
 }
 
 function resultCheck(playerMove, enemyMove) {
@@ -65,6 +73,8 @@ function resultCheck(playerMove, enemyMove) {
     }
 
     updateLivesDisplay();
+
+    checkGameStatus();
 }
 
 function displayCombatMessage(message, borderColor) {
@@ -75,4 +85,43 @@ function displayCombatMessage(message, borderColor) {
 
 function updateLivesDisplay() {
     lives.textContent = `Your Lives: ${playerLives} ︱ Enemy's Lives: ${enemyLives}`;
+}
+
+function endGameAndDisableButtons(message) {
+    endGame.style.display = "block";
+    endGameTitle.textContent = message;
+    moveButtons.forEach((moveButton) => {
+        moveButton.setAttribute("disabled", "true");
+    });
+}
+
+function checkGameStatus() {
+    if (playerLives === 0) {
+        endGameAndDisableButtons("You Lost This Battle!");
+    }
+
+    if (enemyLives === 0) {
+        endGameAndDisableButtons("You Won This Battle!");
+    }
+}
+
+function restartGame() {
+    playerMove = "";
+    enemyMove = "";
+    round = 0;
+    playerLives = 5;
+    enemyLives = 5;
+
+    roundCounter.textContent = " Round: 0";
+    lives.textContent = `Your Lives: 5 ︱ Enemy's Lives: 5`;
+    combatArea.textContent = "Combat Area: Empty";
+    gameInterfaceStatus.style.borderColor = "";
+    opponentInterface.style.borderColor = "";
+    endGame.style.display = "none";
+    endGameTitle.textContent = "";
+    enemyMoveImage.setAttribute("src", "./images/skull.png");
+
+    moveButtons.forEach((moveButton) => {
+        moveButton.removeAttribute("disabled");
+    });
 }
