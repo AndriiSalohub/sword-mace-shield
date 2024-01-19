@@ -31,7 +31,7 @@ function changeRound() {
 function generateRandomEnemyMove() {
     const randomIndex = Math.floor(Math.random() * moveVariants.length);
     enemyMove = moveVariants[randomIndex].getAttribute("id");
-    enemyMoveImage.setAttribute("src", `src/images/${enemyMove}.png`);
+    enemyMoveImage.setAttribute("src", `./src/images/${enemyMove}.png`);
 }
 
 function resultCheck(playerMove, enemyMove) {
