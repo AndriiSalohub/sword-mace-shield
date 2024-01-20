@@ -112,7 +112,7 @@ body {
         display: flex;
     }
 
-    &__opponent {
+    &__enemy {
         border-right: 4px solid var(--border-color);
         padding: 10px 20px;
         &-title {
@@ -224,7 +224,7 @@ body {
             flex-direction: column;
         }
 
-        &__opponent {
+        &__enemy {
             border-right: none;
             border-bottom: 3px solid var(--border-color);
         }
@@ -260,7 +260,7 @@ body {
             padding: 15px 20px;
         }
 
-        &__opponent {
+        &__enemy {
             padding: 10px;
         }
     }

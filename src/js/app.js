@@ -2,14 +2,12 @@ const moveVariants = document.querySelectorAll(".game-interface__user-move");
 const moveButtons = document.querySelectorAll(
     ".game-interface__user-move-button"
 );
-const enemyMoveImage = document.querySelector(
-    ".game-interface__opponent-choose"
-);
+const enemyMoveImage = document.querySelector(".game-interface__enemy-choose");
 const roundCounter = document.querySelector(".game-interface__rounds");
 const lives = document.querySelector(".game-interface__lives");
 const combatArea = document.querySelector(".game-interface__combat-area");
 const gameInterfaceStatus = document.querySelector(".game-interface__status");
-const opponentInterface = document.querySelector(".game-interface__opponent");
+const enemyInterface = document.querySelector(".game-interface__enemy");
 const endGame = document.querySelector(".game-interface__end-game");
 const endGameTitle = document.querySelector(".game-interface__end-title");
 const restartButton = document.querySelector(".game-interface__restart-button");
@@ -80,7 +78,7 @@ function resultCheck(playerMove, enemyMove) {
 function displayCombatMessage(message, borderColor) {
     combatArea.textContent = message;
     gameInterfaceStatus.style.borderColor = borderColor;
-    opponentInterface.style.borderColor = borderColor;
+    enemyInterface.style.borderColor = borderColor;
 }
 
 function updateLivesDisplay() {
@@ -116,7 +114,7 @@ function restartGame() {
     lives.textContent = `Your Lives: 5 ︱ Enemy's Lives: 5`;
     combatArea.textContent = "Combat Area: Empty";
     gameInterfaceStatus.style.borderColor = "";
-    opponentInterface.style.borderColor = "";
+    enemyInterface.style.borderColor = "";
     endGame.style.display = "none";
     endGameTitle.textContent = "";
     enemyMoveImage.setAttribute("src", "./images/skull.png");
@@ -125,3 +123,5 @@ function restartGame() {
         moveButton.removeAttribute("disabled");
     });
 }
+
+console.log("a" * 3);
