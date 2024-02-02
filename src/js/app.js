@@ -1,3 +1,6 @@
+const PLAYER_LIVES_INITIAL = 5;
+const ENEMY_LIVES_INITIAL = 5;
+
 const moveVariants = document.querySelectorAll(".game-interface__user-move");
 const moveButtons = document.querySelectorAll(
     ".game-interface__user-move-button"
@@ -12,22 +15,31 @@ const endGame = document.querySelector(".game-interface__end-game");
 const endGameTitle = document.querySelector(".game-interface__end-title");
 const restartButton = document.querySelector(".game-interface__restart-button");
 
-let playerMove = "";
-let enemyMove = "";
+const player = {
+    move: "",
+    lives: PLAYER_LIVES_INITIAL,
+};
+
+const enemy = {
+    move: "",
+    lives: ENEMY_LIVES_INITIAL,
+};
 let round = 0;
-let playerLives = 5;
-let enemyLives = 5;
 
 moveVariants.forEach((move) => {
     move.addEventListener("click", () => {
-        playerMove = move.getAttribute("id");
-        changeRound();
-        generateRandomEnemyMove();
-        resultCheck(playerMove, enemyMove);
+        handlePlayerMove(move.getAttribute("id"));
     });
 });
 
 restartButton.addEventListener("click", restartGame);
+
+function handlePlayerMove(move) {
+    player.move = move;
+    changeRound();
+    generateRandomEnemyMove();
+    resultCheck(player.move, enemy.move);
+}
 
 function changeRound() {
     round++;
@@ -36,8 +48,8 @@ function changeRound() {
 
 function generateRandomEnemyMove() {
     const randomIndex = Math.floor(Math.random() * moveVariants.length);
-    enemyMove = moveVariants[randomIndex].getAttribute("id");
-    enemyMoveImage.setAttribute("src", `./images/${enemyMove}.png`);
+    enemy.move = moveVariants[randomIndex].getAttribute("id");
+    enemyMoveImage.setAttribute("src", `./images/${enemy.move}.png`);
 }
 
 function resultCheck(playerMove, enemyMove) {
@@ -52,13 +64,13 @@ function resultCheck(playerMove, enemyMove) {
         (playerMove === "mace" && enemyMove === "sword");
 
     if (isPlayerWin) {
-        playerLives--;
+        player.lives--;
         displayCombatMessage(
             `Unfortunate defeat.. You lost one life, because your ${playerMove} lacks power against enemy's ${enemyMove}!`,
             "rgb(185, 107, 120)"
         );
     } else if (isEnemyWin) {
-        enemyLives--;
+        enemy.lives--;
         displayCombatMessage(
             `Impressive attack! The enemy lost one life, because the great power of your ${playerMove} crushed his ${enemyMove}!`,
             "rgb(98, 180, 156)"
@@ -71,7 +83,6 @@ function resultCheck(playerMove, enemyMove) {
     }
 
     updateLivesDisplay();
-
     checkGameStatus();
 }
 
@@ -82,7 +93,7 @@ function displayCombatMessage(message, borderColor) {
 }
 
 function updateLivesDisplay() {
-    lives.textContent = `Your Lives: ${playerLives} ︱ Enemy's Lives: ${enemyLives}`;
+    lives.textContent = `Your Lives: ${player.lives} ︱ Enemy's Lives: ${enemy.lives}`;
 }
 
 function endGameAndDisableButtons(message) {
@@ -94,21 +105,23 @@ function endGameAndDisableButtons(message) {
 }
 
 function checkGameStatus() {
-    if (playerLives === 0) {
+    if (player.lives === 0) {
         endGameAndDisableButtons("You Lost This Battle!");
     }
 
-    if (enemyLives === 0) {
+    if (enemy.lives === 0) {
         endGameAndDisableButtons("You Won This Battle!");
     }
 }
 
 function restartGame() {
-    playerMove = "";
-    enemyMove = "";
+    player.move = "";
+    player.lives = PLAYER_LIVES_INITIAL;
+
+    enemy.move = "";
+    enemy.lives = ENEMY_LIVES_INITIAL;
+
     round = 0;
-    playerLives = 5;
-    enemyLives = 5;
 
     roundCounter.textContent = " Round: 0";
     lives.textContent = `Your Lives: 5 ︱ Enemy's Lives: 5`;
@@ -123,5 +136,3 @@ function restartGame() {
         moveButton.removeAttribute("disabled");
     });
 }
-
-console.log("a" * 3);
