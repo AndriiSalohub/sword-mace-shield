@@ -64,16 +64,16 @@ function resultCheck(playerMove, enemyMove) {
         (playerMove === "mace" && enemyMove === "sword");
 
     if (isPlayerWin) {
-        player.lives--;
-        displayCombatMessage(
-            `Unfortunate defeat.. You lost one life, because your ${playerMove} lacks power against enemy's ${enemyMove}!`,
-            "rgb(185, 107, 120)"
-        );
-    } else if (isEnemyWin) {
         enemy.lives--;
         displayCombatMessage(
             `Impressive attack! The enemy lost one life, because the great power of your ${playerMove} crushed his ${enemyMove}!`,
             "rgb(98, 180, 156)"
+        );
+    } else if (isEnemyWin) {
+        player.lives--;
+        displayCombatMessage(
+            `Unfortunate defeat.. You lost one life, because your ${playerMove} lacks power against enemy's ${enemyMove}!`,
+            "rgb(185, 107, 120)"
         );
     } else {
         displayCombatMessage(
@@ -124,7 +124,7 @@ function restartGame() {
     round = 0;
 
     roundCounter.textContent = " Round: 0";
-    lives.textContent = `Your Lives: 5 ︱ Enemy's Lives: 5`;
+    lives.textContent = `Your Lives: ${PLAYER_LIVES_INITIAL} ︱ Enemy's Lives: ${ENEMY_LIVES_INITIAL}`;
     combatArea.textContent = "Combat Area: Empty";
     gameInterfaceStatus.style.borderColor = "";
     enemyInterface.style.borderColor = "";
