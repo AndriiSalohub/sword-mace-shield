@@ -1,6 +1,6 @@
 # Sword-Mace-Shield
 
-Welcome to Sword-Mace-Shield, an exciting twist on the classic "Rock, Paper, Scissors" game. In this game, players choose their weapon - sword, mace, or shield - and engage in epic battles with randomly chosen opponents. The weapons follow a simple rule set:
+Welcome to Sword-Mace-Shield, an exciting twist on the classic "Rock, Paper, Scissors" game. In this game, players choose their weapon - sword, mace, or shield - and engage in epic battles with randomly chosen opponents.
 
 ## Project Overview
 
