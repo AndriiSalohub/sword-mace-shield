@@ -3,7 +3,7 @@ const ENEMY_LIVES_INITIAL = 5;
 
 const moveVariants = document.querySelectorAll(".game-interface__user-move");
 const moveButtons = document.querySelectorAll(
-    ".game-interface__user-move-button"
+    ".game-interface__user-move-button",
 );
 const enemyMoveImage = document.querySelector(".game-interface__enemy-choose");
 const roundCounter = document.querySelector(".game-interface__rounds");
@@ -67,18 +67,18 @@ function resultCheck(playerMove, enemyMove) {
         enemy.lives--;
         displayCombatMessage(
             `Impressive attack! The enemy lost one life, because the great power of your ${playerMove} crushed his ${enemyMove}!`,
-            "rgb(98, 180, 156)"
+            "rgb(98, 180, 156)",
         );
     } else if (isEnemyWin) {
         player.lives--;
         displayCombatMessage(
             `Unfortunate defeat.. You lost one life, because your ${playerMove} lacks power against enemy's ${enemyMove}!`,
-            "rgb(185, 107, 120)"
+            "rgb(185, 107, 120)",
         );
     } else {
         displayCombatMessage(
             `  Hmm.. Two ${playerMove}s mean a draw, so no lives were lost. Let's try again.`,
-            "rgb(128, 112, 172)"
+            "rgb(128, 112, 172)",
         );
     }
 

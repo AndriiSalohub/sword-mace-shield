@@ -1,293 +1,296 @@
 @import url("https://fonts.googleapis.com/css2?family=Macondo+Swash+Caps&display=swap");
 
 :root {
-    --main-font: "Macondo Swash Caps", cursive;
-    --purple-color: #8070ac;
-    --green-color: #62b49c;
-    --red-color: #b96b78;
-    --border-color: #5e5e5e;
+  --main-font: "Macondo Swash Caps", cursive;
+  --purple-color: #8070ac;
+  --green-color: #62b49c;
+  --red-color: #b96b78;
+  --border-color: #5e5e5e;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    color: #5e5e5e;
-    font-family: var(--main-font);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  color: #5e5e5e;
+  font-family: var(--main-font);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
-    padding: 30px 20px;
-    text-align: center;
+  padding: 30px 20px;
+  text-align: center;
 
-    &__title {
-        font-size: 50px;
-        font-weight: 900;
-        & span {
-            padding-left: 10px;
-            &:first-child {
-                padding-left: 0px;
-            }
-        }
-    }
+  &__title {
+    font-size: 50px;
+    font-weight: 900;
 
-    &__subtitle {
-        font-size: 25px;
-        margin-top: 40px;
-        font-weight: 600;
+    & span {
+      padding-left: 10px;
+
+      &:first-child {
+        padding-left: 0px;
+      }
     }
+  }
+
+  &__subtitle {
+    font-size: 25px;
+    margin-top: 40px;
+    font-weight: 600;
+  }
 }
 
 .purple-text {
-    color: var(--purple-color);
+  color: var(--purple-color);
 }
 
 .green-text {
-    color: var(--green-color);
+  color: var(--green-color);
 }
 
 .red-text {
-    color: var(--red-color);
+  color: var(--red-color);
 }
 
 .game-interface {
-    margin: 0 auto;
-    padding: 0px 15px;
-    max-width: 700px;
+  margin: 0 auto;
+  padding: 0px 15px;
+  max-width: 700px;
 
-    &__title {
-        text-align: center;
-        font-size: 25px;
-        font-weight: 600;
-    }
+  &__title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+  }
 
-    &__user-moves {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-        border: 4px solid var(--border-color);
-        border-radius: 4px;
-        padding: 35px 75px;
+  &__user-moves {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    border: 4px solid var(--border-color);
+    border-radius: 4px;
+    padding: 35px 75px;
 
-        & button {
-            background-color: transparent;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            transition: scale 0.3s ease-in-out;
+    & button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      transition: scale 0.3s ease-in-out;
 
-            &:hover {
-                background-color: transparent;
-                border: none;
-                outline: none;
-                cursor: pointer;
-                scale: 1.1;
-                transition: scale 0.3s ease-in-out;
-            }
-
-            &:last-child {
-                margin-right: 0;
-            }
-        }
-    }
-
-    &__user-move-img {
-        width: 100px;
-        height: auto;
-    }
-
-    &__separator {
-        display: block;
-        width: 70%;
-        margin: 0 auto;
-    }
-
-    &__status {
-        border: 4px solid var(--border-color);
-        border-radius: 6px;
-        display: flex;
-    }
-
-    &__enemy {
-        border-right: 4px solid var(--border-color);
-        padding: 10px 20px;
-        &-title {
-            text-align: center;
-            margin-bottom: 5px;
-        }
-        &-choose {
-            display: block;
-            margin: 0 auto;
-            width: 120px;
-            height: 120px;
-        }
-    }
-
-    &__info {
-        padding: 10px 20px;
-
-        &-text {
-            font-size: 18px;
-            line-height: 34px;
-        }
-    }
-
-    &__end-game {
-        display: none;
-        margin-top: 20px;
-        text-align: center;
-    }
-
-    &__end-title {
-        font-size: 35px;
-        margin-bottom: 10px;
-    }
-
-    &__restart-button {
-        color: #5e5e5e;
-        padding: 10px 20px;
-        border: 4px solid var(--border-color);
-        border-radius: 6px;
-        font-size: 20px;
-        font-family: var(--main-font);
+      &:hover {
         background-color: transparent;
+        border: none;
+        outline: none;
         cursor: pointer;
-        transition: all 0.2s ease-in-out;
-        margin-bottom: 20px;
+        scale: 1.1;
+        transition: scale 0.3s ease-in-out;
+      }
 
-        &:hover {
-            color: white;
-            background-color: #5e5e5e;
-        }
+      &:last-child {
+        margin-right: 0;
+      }
     }
+  }
+
+  &__user-move-img {
+    width: 100px;
+    height: auto;
+  }
+
+  &__separator {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  &__status {
+    border: 4px solid var(--border-color);
+    border-radius: 6px;
+    display: flex;
+  }
+
+  &__enemy {
+    border-right: 4px solid var(--border-color);
+    padding: 10px 20px;
+
+    &-title {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    &-choose {
+      display: block;
+      margin: 0 auto;
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  &__info {
+    padding: 10px 20px;
+
+    &-text {
+      font-size: 18px;
+      line-height: 34px;
+    }
+  }
+
+  &__end-game {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  &__end-title {
+    font-size: 35px;
+    margin-bottom: 10px;
+  }
+
+  &__restart-button {
+    color: #5e5e5e;
+    padding: 10px 20px;
+    border: 4px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 20px;
+    font-family: var(--main-font);
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 20px;
+
+    &:hover {
+      color: white;
+      background-color: #5e5e5e;
+    }
+  }
 }
 
 .footer {
-    margin-top: auto;
-    text-align: center;
-    padding: 20px;
-    border-top: 3px solid var(--border-color);
+  margin-top: auto;
+  text-align: center;
+  padding: 20px;
+  border-top: 3px solid var(--border-color);
 }
 
 @media (max-width: 1024px) {
-    .header {
-        &__title {
-            font-size: 45px;
-        }
-
-        &__subtitle {
-            font-size: 23px;
-            margin-top: 35px;
-        }
+  .header {
+    &__title {
+      font-size: 45px;
     }
 
-    .game-interface {
-        &__title {
-            font-size: 20px;
-        }
-
-        &__user-moves {
-            padding: 30px 65px;
-        }
+    &__subtitle {
+      font-size: 23px;
+      margin-top: 35px;
     }
+  }
+
+  .game-interface {
+    &__title {
+      font-size: 20px;
+    }
+
+    &__user-moves {
+      padding: 30px 65px;
+    }
+  }
 }
 
 @media (max-width: 768px) {
-    .header {
-        padding: 15px 20px;
-        text-align: center;
+  .header {
+    padding: 15px 20px;
+    text-align: center;
 
-        &__title {
-            font-size: 40px;
-        }
-
-        &__subtitle {
-            font-size: 20px;
-            margin-top: 30px;
-        }
+    &__title {
+      font-size: 40px;
     }
 
-    .game-interface {
-        &__title {
-            font-size: 18px;
-        }
-
-        &__user-move-img {
-            width: 90px;
-        }
-
-        &__status {
-            flex-direction: column;
-        }
-
-        &__enemy {
-            border-right: none;
-            border-bottom: 3px solid var(--border-color);
-        }
-
-        &__info {
-            text-align: center;
-        }
+    &__subtitle {
+      font-size: 20px;
+      margin-top: 30px;
     }
+  }
+
+  .game-interface {
+    &__title {
+      font-size: 18px;
+    }
+
+    &__user-move-img {
+      width: 90px;
+    }
+
+    &__status {
+      flex-direction: column;
+    }
+
+    &__enemy {
+      border-right: none;
+      border-bottom: 3px solid var(--border-color);
+    }
+
+    &__info {
+      text-align: center;
+    }
+  }
 }
 
 @media (max-width: 500px) {
-    .header {
-        &__title {
-            font-size: 35px;
-        }
-
-        &__subtitle {
-            font-size: 18px;
-            margin-top: 25px;
-        }
+  .header {
+    &__title {
+      font-size: 35px;
     }
 
-    .game-interface {
-        &__title {
-            font-size: 15px;
-        }
-
-        &__user-move-img {
-            width: 70px;
-        }
-
-        &__user-moves {
-            padding: 15px 20px;
-        }
-
-        &__enemy {
-            padding: 10px;
-        }
+    &__subtitle {
+      font-size: 18px;
+      margin-top: 25px;
     }
+  }
+
+  .game-interface {
+    &__title {
+      font-size: 15px;
+    }
+
+    &__user-move-img {
+      width: 70px;
+    }
+
+    &__user-moves {
+      padding: 15px 20px;
+    }
+
+    &__enemy {
+      padding: 10px;
+    }
+  }
 }
 
 @media (max-width: 385px) {
-    .header {
-        &__title {
-            font-size: 30px;
+  .header {
+    &__title {
+      font-size: 30px;
 
-            & span {
-                padding-left: 5px;
-            }
-        }
-
-        &__subtitle {
-            font-size: 15px;
-        }
+      & span {
+        padding-left: 5px;
+      }
     }
 
-    .game-interface {
-        &__title {
-            font-size: 13px;
-        }
-
-        &__user-move-img {
-            width: 65px;
-        }
+    &__subtitle {
+      font-size: 15px;
     }
+  }
+
+  .game-interface {
+    &__title {
+      font-size: 13px;
+    }
+
+    &__user-move-img {
+      width: 65px;
+    }
+  }
 }
